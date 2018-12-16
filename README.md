@@ -26,20 +26,30 @@ So this way, if we find a match for 8 out of 10 terms, we may still hit on sourc
 Lets test this on an open source twapi library. Install the codesearch program such that csearch.exe  resides in c:\codesearch (still hard coded at this time; should probably add an option to pass the codesearch location). Make that your current directory.
 
 Next download the source code with mercurial ( or get it any other way you like)
+
 hg clone http://hg.code.sf.net/p/twapi/twapi31 twapi-twapi31 
+
 Now c:\codesearch\twapi-twapi31 contains the source code
 
-Execute cindex.exe twapi-twapi31
+Execute 
+
+cindex.exe twapi-twapi31
+
 This will make an index from the twapi source so that csearch.exe can do its job.
 
 Then get the prebuilt dll from sourceforge:
+
 http://sourceforge.net/projects/twapi/files/Current%20Releases/Tcl%20Windows%20API/twapi-3.1.17/
 
 This is a case where the dll is built with debug information and has an overbundance of possible search terms. 
 
 An example result is this:
 
+!(image1.jpg)
+
 Ok, so sub_1000BE73 does not have a public name, which would normally make it tricky to find in a source base. However, we have a high confidence match based on the function calls made in the subroutine. In this case only one file matches all the search terms, clipboard.c. A quick look at clipboard.c yields:
+
+!(image2.jpg)
 
 Which is the proper function. It this point we could carefully provide IDA with type information etc...
 
