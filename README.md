@@ -45,11 +45,11 @@ This is a case where the dll is built with debug information and has an overbund
 
 An example result is this:
 
-!(image1.jpg)
+![IDA Header](image1.jpg)
 
 Ok, so sub_1000BE73 does not have a public name, which would normally make it tricky to find in a source base. However, we have a high confidence match based on the function calls made in the subroutine. In this case only one file matches all the search terms, clipboard.c. A quick look at clipboard.c yields:
 
-!(image2.jpg)
+![Source Code](image2.jpg)
 
 Which is the proper function. It this point we could carefully provide IDA with type information etc...
 
